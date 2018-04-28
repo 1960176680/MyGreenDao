@@ -1,5 +1,5 @@
 apply plugin: 'com.android.application'
-
+apply plugin: 'org.greenrobot.greendao'
 android {
     compileSdkVersion 27
     defaultConfig {
@@ -17,7 +17,11 @@ android {
         }
     }
 }
-
+greendao {
+    schemaVersion 1
+    daoPackage 'com.zhouwenguang.hz.gen'
+    targetGenDir 'src/main/java'
+}
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:27.1.1'
@@ -27,5 +31,7 @@ dependencies {
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
     implementation 'com.jakewharton:butterknife:8.8.1'
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.8.1'
-
+//    greendao
+    implementation'org.greenrobot:greendao:3.2.2'
+    implementation'org.greenrobot:greendao-generator:3.2.0'
 }
